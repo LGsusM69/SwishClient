@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swish Client</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+<h1>Swish Client</h1>
+<div id="connection">
+    <label for="serverAddress">Server Address:</label>
+    <input type="text" id="serverAddress" placeholder="Enter server address" value="localhost">
+    <label for="serverPort">Port:</label>
+    <input type="text" id="serverPort" placeholder="Enter server port" value="8080">
+    <button id="connectButton">Connect</button>
+    <button id="disconnectButton" disabled>Disconnect</button>
+</div>
+<div id="server-status" style="color: red;">Server is not running</div>
+
+<textarea id="logs" readonly placeholder="Server logs..."></textarea>
+
+<h2>Connected Clients</h2>
+<table id="clients-table">
+    <thead>
+    <tr>
+        <th>Client ID</th>
+        <th>Username</th>
+        <th>IP Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Client rows will be dynamically added here -->
+    </tbody>
+</table>
+<script src="connection.js"></script>
+</body>
+</html>
