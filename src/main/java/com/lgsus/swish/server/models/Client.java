@@ -17,9 +17,7 @@ public class Client implements Runnable {
     private int port;
     private boolean connected = false;
 
-    public Client(String host, int port, ClientController controller) {
-        this.host = host;
-        this.port = port;
+    public Client(ClientController controller) {
         this.controller = controller;
     }
     @Override
@@ -38,7 +36,9 @@ public class Client implements Runnable {
         }
     }
 
-    public void connect() throws IOException {
+    public void connect(String host, int port) throws IOException {
+        this.host = host;
+        this.port = port;
         socket = new Socket(host, port);
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         out = new PrintWriter(socket.getOutputStream(), true);

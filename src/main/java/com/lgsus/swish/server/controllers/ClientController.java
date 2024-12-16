@@ -11,12 +11,12 @@ public class ClientController {
 
     public ClientController(ClientGUI clientGUI) {
         this.clientGUI = clientGUI;
-        this.client = new Client("localhost", 12345, this);
+        this.client = new Client(this);
     }
 
-    public boolean connect() {
+    public boolean connect(String host, int port) {
         try {
-            client.connect();
+            client.connect(host, port);
             Thread clientThread = new Thread(client);
             clientThread.start();
             clientGUI.loadChatPage();

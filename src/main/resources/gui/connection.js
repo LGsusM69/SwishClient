@@ -8,16 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
         logs.value += message + "\n";
         logs.scrollTop = logs.scrollHeight;
     }
-    function testFunction() {
-        log('lamalamalamita');
-    }
 
     connectButton.addEventListener("click", () => {
         const serverAddress = document.getElementById("serverAddress").value;
         const serverPort = document.getElementById("serverPort").value;
 
         if (window.controller) {
-            let connected = window.controller.connect();
+            let connected = window.controller.connect(serverAddress, serverPort);
             statusText.textContent = "Connecting to server...";
             statusText.style.color = "blue";
 
