@@ -18,4 +18,4 @@ This is the client side of a tcp chat software. It features a simple UI that all
 ![Screenshot 2024-12-16 124541](https://github.com/user-attachments/assets/9e05b397-f2c3-4c0e-b156-51a3e8b27756)
 
 ## Getting started:
-  Just clone the project and run the ChatClient.java file
+  Just clone the project and run the ChatClient.java file on an IDE using maven.
