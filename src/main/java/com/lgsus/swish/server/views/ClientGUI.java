@@ -82,7 +82,6 @@ public class ClientGUI extends Application {
 
         // Escape the message properly for JavaScript execution
         String escapedMessage = message.replace("'", "\\'"); // Escape single quotes for JavaScript
-        //webEngine.executeScript("log('" + escapedMessage + "');");
         try {
             Platform.runLater(() -> {
                 webEngine.executeScript("appendMessage('" + escapedMessage + "');");

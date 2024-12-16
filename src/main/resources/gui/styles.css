@@ -44,3 +44,8 @@ button:disabled {
     color: #666;
     cursor: not-allowed;
 }
+#chat-log {
+    min-height: 300px;
+    min-width: 600px;
+    resize: none;
+}
