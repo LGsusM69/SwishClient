@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatMessage = document.getElementById("chat-message");
 
     function log(message) {
-        console.log("grandmasterflash");
         chatLog.value += message + "\n";
         chatLog.scrollTop = chatLog.scrollHeight;
     }
@@ -28,3 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+function appendMessage(message) {
+    const chatLog = document.getElementById("chat-log");
+    chatLog.value += message + "\n";
+    chatLog.scrollTop = chatLog.scrollHeight;
+}

@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
         logs.value += message + "\n";
         logs.scrollTop = logs.scrollHeight;
     }
+    function testFunction() {
+        log('lamalamalamita');
+    }
 
     connectButton.addEventListener("click", () => {
         const serverAddress = document.getElementById("serverAddress").value;

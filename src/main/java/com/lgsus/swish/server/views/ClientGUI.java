@@ -2,6 +2,7 @@ package com.lgsus.swish.server.views;
 
 import com.lgsus.swish.server.controllers.ClientController;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.concurrent.Worker;
 import javafx.scene.Scene;
 import javafx.scene.web.WebView;
@@ -81,6 +82,14 @@ public class ClientGUI extends Application {
 
         // Escape the message properly for JavaScript execution
         String escapedMessage = message.replace("'", "\\'"); // Escape single quotes for JavaScript
-        webEngine.executeScript("log('" + escapedMessage + "');");
+        //webEngine.executeScript("log('" + escapedMessage + "');");
+        try {
+            Platform.runLater(() -> {
+                webEngine.executeScript("appendMessage('" + escapedMessage + "');");
+                System.out.println("yes");
+            });
+        } catch(Exception e) {
+            System.out.println("nope: " + e.getMessage());
+        }
     }
 }
