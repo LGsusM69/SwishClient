@@ -27,6 +27,10 @@ public class Client implements Runnable {
         while(connected) {
             try {
             message = in.readLine();
+            if(message.equals("/close")) {
+                connected = false;
+                break;
+            }
             controller.appendMessage(message);
 
             } catch(Exception e) {
@@ -36,22 +40,29 @@ public class Client implements Runnable {
         }
     }
 
-    public void connect(String host, int port) throws IOException {
+    public void connect(String host, int port, String nickName) throws IOException {
         this.host = host;
         this.port = port;
         socket = new Socket(host, port);
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         out = new PrintWriter(socket.getOutputStream(), true);
+        out.println(nickName);
 
         connected = true;
         
     }
     public void disconnect() throws IOException {
-        in.close();
-        out.close();
-        socket.close();
+        out.println("/close");
+        try {
+            in.close();
+            out.close();
+            socket.close();
 
-        connected = false;
+        } catch(IOException e) {
+            System.out.println(e.getMessage());
+            throw e;
+        }
+
     }
 
     public void sendMessage(String message) {

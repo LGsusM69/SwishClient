@@ -47,7 +47,7 @@ public class ClientGUI extends Application {
         });
 
         primaryStage.setTitle("Swish Client");
-        primaryStage.setScene(new Scene(webView, 800, 600));
+        primaryStage.setScene(new Scene(webView, 900, 600));
         primaryStage.show();
     }
     public void loadConnectionPage() {

@@ -2,6 +2,7 @@ package com.lgsus.swish.server.controllers;
 
 import com.lgsus.swish.server.models.Client;
 import com.lgsus.swish.server.views.ClientGUI;
+import javafx.application.Platform;
 
 import java.io.IOException;
 
@@ -14,9 +15,9 @@ public class ClientController {
         this.client = new Client(this);
     }
 
-    public boolean connect(String host, int port) {
+    public boolean connect(String host, int port, String nickName) {
         try {
-            client.connect(host, port);
+            client.connect(host, port, nickName);
             Thread clientThread = new Thread(client);
             clientThread.start();
             clientGUI.loadChatPage();
@@ -31,7 +32,8 @@ public class ClientController {
     public void disconnect() {
         try {
             client.disconnect();
-            clientGUI.loadConnectionPage();
+            System.out.println("se armo la machaca");
+                clientGUI.loadConnectionPage();
         } catch(IOException e) {
             System.out.println("ClientController error: " + e.getMessage());
         }
